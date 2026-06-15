@@ -471,24 +471,8 @@ section{
     left:100%;
 }
 
-/* ==========================
-   HEADING GLOW
-========================== */
 
-.heading{
-    animation:headingGlow 2s infinite alternate;
-}
 
-@keyframes headingGlow{
-    from{
-        text-shadow:0 0 10px #00abf0;
-    }
-    to{
-        text-shadow:
-        0 0 20px #00abf0,
-        0 0 40px #00abf0;
-    }
-}
 
 /* ==========================
    FLOATING PROJECTS
@@ -607,7 +591,7 @@ section{
     -webkit-backdrop-filter:blur(15px);
     border:1px solid rgba(255,255,255,0.15);
     border-radius:10px;
-    color:white;
+    color:#00abf0;
     font-size:16px;
     outline:none;
 }
@@ -618,8 +602,11 @@ section{
 
 .message-form input::placeholder,
 .message-form textarea::placeholder{
-    color:#ccc;
+    color:#00abf0;
+    text-decoration:none;
+    border:none;
 }
+    
 
 .message-form .btn{
     width:200px;
@@ -746,32 +733,235 @@ body::after{
 .contact-info a:hover{
     color:#00abf0;
 }
+.network-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.network-bg span{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#ff4da6;
+    border-radius:50%;
+    box-shadow:0 0 15px #ff4da6;
+}
+
+/* Nodes Position */
+
+.network-bg span:nth-child(1){top:15%;left:20%;animation:move1 12s infinite alternate;}
+.network-bg span:nth-child(2){top:30%;left:40%;animation:move2 15s infinite alternate;}
+.network-bg span:nth-child(3){top:20%;left:70%;animation:move3 18s infinite alternate;}
+.network-bg span:nth-child(4){top:55%;left:25%;animation:move4 14s infinite alternate;}
+.network-bg span:nth-child(5){top:65%;left:55%;animation:move5 16s infinite alternate;}
+.network-bg span:nth-child(6){top:75%;left:80%;animation:move6 13s infinite alternate;}
+.network-bg span:nth-child(7){top:45%;left:75%;animation:move7 17s infinite alternate;}
+.network-bg span:nth-child(8){top:85%;left:35%;animation:move8 15s infinite alternate;}
+
+/* Connection Lines */
+
+.network-bg::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(rgba(255,77,166,0.15),rgba(255,77,166,0.15));
+    opacity:.3;
+}
+
+/* Animations */
+
+@keyframes move1{
+    from{transform:translate(0,0);}
+    to{transform:translate(40px,-30px);}
+}
+@keyframes move2{
+    from{transform:translate(0,0);}
+    to{transform:translate(-50px,20px);}
+}
+@keyframes move3{
+    from{transform:translate(0,0);}
+    to{transform:translate(30px,40px);}
+}
+@keyframes move4{
+    from{transform:translate(0,0);}
+    to{transform:translate(-40px,-25px);}
+}
+@keyframes move5{
+    from{transform:translate(0,0);}
+    to{transform:translate(50px,-30px);}
+}
+@keyframes move6{
+    from{transform:translate(0,0);}
+    to{transform:translate(-30px,35px);}
+}
+@keyframes move7{
+    from{transform:translate(0,0);}
+    to{transform:translate(25px,-35px);}
+}
+@keyframes move8{
+    from{transform:translate(0,0);}
+    to{transform:translate(-45px,25px);}
+}
+.message-form input,
+.message-form textarea{
+    text-decoration:none !important;
+}
+
+.message-form input::placeholder,
+.message-form textarea::placeholder{
+    text-decoration:none !important;
+}
+.theme-toggle{
+    font-size:28px;
+    color:#ff4da6;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.theme-toggle:hover{
+    transform:rotate(20deg);
+}
+
+/* Light Theme */
+
+body.light-theme{
+    background:#f5f5f5 !important;
+    color:#222 !important;
+}
+
+body.light-theme .header{
+    background:rgba(255,255,255,0.95);
+}
+
+body.light-theme .education-box,
+body.light-theme .skill-box,
+body.light-theme .project-card,
+body.light-theme .certificate-card,
+body.light-theme .about-box,
+body.light-theme .message-form{
+    background:rgba(255,255,255,0.8);
+    color:#222;
+}
+
+body.light-theme .navbar a,
+body.light-theme .contact-info p,
+body.light-theme .about-box p{
+    color:#222;
+}
+.quick-links{
+    margin-top:50px;
+    text-align:center;
+}
+
+.quick-links h3{
+    color:#00abf0;
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.quick-links a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-size:18px;
+    transition:.3s;
+}
+
+.quick-links a:hover{
+    color:#ff4da6;
+    text-shadow:0 0 10px#00abf0;
+}
+.heading{
+    text-align:center;
+    color:#00abf0;
+    font-size:42px;
+    margin-bottom:40px;
+    text-shadow:
+        0 0 10px #00abf0,
+        0 0 20px #00abf0;
+}
+.heading,
+.quick-links h3,
+.about h2,
+.education h2,
+.skills h2,
+.projects h2,
+.certificates h2,
+.send a message h2
+.contact h2{
+    text-align:center;
+    color:#00abf0;
+    font-size:42px;
+    margin-bottom:40px;
+    text-shadow:none !important;
+    animation:none !important;
+}
+.message-form + h2,
+.contact h2{
+    text-align:center;
+    color:#00abf0 !important;
+    font-size:42px;
+    margin-bottom:40px;
+    text-shadow:none !important;
+    animation:none !important;
+}
+.home-content h3{
+    animation:colorChange 3s infinite;
+}
+
+@keyframes colorChange{
+    0%{color:#00abf0;}
+    50%{color:#ff4da6;}
+    100%{color:#c77dff;}
+}
+.highlight-r{
+    background:linear-gradient(
+        45deg,
+        #ff4da6,
+        #c77dff,
+        #00abf0
+    );
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 </style>
 </head>
 
 <body>
+    <div class="network-bg">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 <header class="header">
     <div class="logo">Vivetha mani</div>
 
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#certificate">Certificate</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
+
+</nav>
+    <i class='bx bx-moon theme-toggle' id="theme-icon"></i>
 </header>
 
 <section class="home fade" id="home">
 
 <div class="home-content">
 
-<h1>Hi, I'm <span class="typing">Vivetha Mani</span></h1>
+<h1>Vivetha Mani <span class="highlight-r">R</span></h1>
 
-<h3>M.Sc Information Technology</h3>
+<h3>Frontend Developer | Designer</h3>
 
 <div class="about-box">
     <p>
@@ -781,14 +971,14 @@ body::after{
         Seeking an opportunity to start my professional career
         and grow in a reputed organization.
     </p>
-     <a href="VIVERESUME1.pdf" download class="btn">
+     <a href="viveresumeit.pdf" download class="btn">
         Download CV
     </a>
 </div>
 
 
 <div class="home-img">
-<img src="vivetha.jpeg" alt="Vivetha">
+<img src="mani.jpeg" alt="Vivetha">
 </div>
 
 </section>
@@ -944,20 +1134,27 @@ body::after{
     </p>
 
 </div>
+<div class="quick-links">
+    <h3>Quick Links</h3>
+
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+</div>
 </section>
 <h2 class="heading">Send a Message</h2>
 <form class="message-form">
 
-    <input type="text" placeholder="Your Name" required>
-
-    <input type="email" placeholder="Your Email" required>
-
-    <textarea rows="6" placeholder="Your Message" required></textarea>
-
+    <input type="text" placeholder="Enter your name">
+<input type="email" placeholder="Enter your email">
+<textarea placeholder="Type your message"></textarea>
     <button type="submit" class="btn">
         Send Message
     </button>
-
 </form>
 <script>
 const observer = new IntersectionObserver((entries)=>{
@@ -988,5 +1185,22 @@ item.classList.add('show');
 
 });
 </script> 
+<script>
+const themeIcon = document.getElementById("theme-icon");
+
+themeIcon.addEventListener("click", () => {
+
+    document.body.classList.toggle("light-theme");
+
+    if(document.body.classList.contains("light-theme")){
+        themeIcon.classList.remove("bx-moon");
+        themeIcon.classList.add("bx-sun");
+    }else{
+        themeIcon.classList.remove("bx-sun");
+        themeIcon.classList.add("bx-moon");
+    }
+
+});
+</script>
 </body>
 </html>
